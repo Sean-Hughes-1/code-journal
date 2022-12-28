@@ -27,7 +27,7 @@
   </header>
   <main>
     <div data-view="entry-form">
-      <form>
+      <form id="form">
         <div class="container">
           <div class="row">
             <div class="column-full">
@@ -35,26 +35,26 @@
             </div>
           </div>
           <div class="row">
-            <div class="column-half">
-              <img src="images/placeholder-image-square.jpg" alt="Place Holder Image">
+            <div class="column-half photo-wrap">
+              <img id="photo" src="images/placeholder-image-square.jpg" alt="Place Holder Image">
             </div>
             <div class="column-half">
               <label for="title" class="bold">Title</label>
-              <input name="title" type="text" class="title">
+              <input name="title" type="text" class="title" required="required">
               <label for="photo" class="bold">Photo URL</label>
-              <input name="photo" type="text" class="photo">
+              <input name="photo" type="text" class="photo" id="photo-input" required="required">
             </div>
           </div>
           <div class="row">
             <div class="column-full">
               <label for="notes" class="bold">Notes</label>
-              <textarea name="notes" class="notes" required></textarea>
+              <textarea name="notes" class="notes" required="required"></textarea>
             </div>
           </div>
           <div class="row">
             <div class="column-full">
               <div class="row justify-content-end">
-                <button class="submit" type="submit">SAVE</button>
+                <button class="submit" id="submit" type="submit">SAVE</button>
               </div>
             </div>
           </div>
