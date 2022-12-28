@@ -18,11 +18,49 @@
 <body>
   <header>
     <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>Code Journal</h1>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container">
-    <div data-view="entry-form"></div>
-    <div data-view="entries" class="hidden"></div>
+  <main>
+    <div data-view="entry-form">
+      <form id="form">
+        <div class="container">
+          <div class="row">
+            <div class="column-full">
+              <h2>New Entry</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half photo-wrap">
+              <img id="photo" src="images/placeholder-image-square.jpg" alt="Place Holder Image">
+            </div>
+            <div class="column-half">
+              <label for="title" class="bold">Title</label>
+              <input name="title" type="text" class="title" required="required">
+              <label for="photo" class="bold">Photo URL</label>
+              <input name="photo" type="text" class="photo" id="photo-input" required="required">
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label for="notes" class="bold">Notes</label>
+              <textarea name="notes" class="notes" required="required"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div class="row justify-content-end">
+                <button class="submit" id="submit" type="submit">SAVE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
