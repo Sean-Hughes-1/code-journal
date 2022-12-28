@@ -17,43 +17,50 @@
 </head>
 <body>
   <header>
-    <div class="container header">
-      <h3>
-        Code Journal
-      </h3>
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1>Code Journal</h1>
+        </div>
+      </div>
     </div>
   </header>
-  <main class="container background-light-grey">
-    <h3 class="no-top-margin padding-top">
-      New Entry
-    </h3>
+  <main>
     <div data-view="entry-form">
       <form>
-        <div class="flex">
-          <div class="column-half">
-            <img src="./images/placeholder-image-square.jpg" alt="Place Holder Image">
+        <div class="container">
+          <div class="row">
+            <div class="column-full">
+              <h2>New Entry</h2>
+            </div>
           </div>
-          <div class="column-half column padding-left">
-            <label for="title" class="bold">Title</label><br>
-            <input type="text" id="title" name="title"><br>
-            <label for="photo" class="bold">Photo URL</label><br>
-            <input type="text" id="photo" name="photo"><br><br>
+          <div class="row">
+            <div class="column-half">
+              <img src="images/placeholder-image-square.jpg" alt="Place Holder Image">
+            </div>
+            <div class="column-half">
+              <label for="title" class="bold">Title</label>
+              <input name="title" type="text" class="title">
+              <label for="photo" class="bold">Photo URL</label>
+              <input name="photo" type="text" class="photo">
+            </div>
           </div>
-        </div>
-        <div class="flex">
-          <div class="column-full column padding-top flex">
-            <p>
-              <label for="notes" class="bold padding-left">Notes</label>
-            </p>
-            <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+          <div class="row">
+            <div class="column-full">
+              <label for="notes" class="bold">Notes</label>
+              <textarea name="notes" class="notes" required></textarea>
+            </div>
           </div>
-        </div>
-        <div class="submit">
-          <input type="submit" value="SAVE">
+          <div class="row">
+            <div class="column-full">
+              <div class="row justify-content-end">
+                <button class="submit" type="submit">SAVE</button>
+              </div>
+            </div>
+          </div>
         </div>
       </form>
-
-      <div data-view="entries" class="hidden"></div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
