@@ -20,13 +20,13 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h1>Code Journal</h1>
+          <h1>Code Journal<span id="entries-text" class="span-entries"> Entries</span></h1>
         </div>
       </div>
     </div>
   </header>
   <main>
-    <div data-view="entry-form">
+    <div data-view="entry-form" id="entry-form" class="hidden">
       <form id="form">
         <div class="container">
           <div class="row">
@@ -60,6 +60,22 @@
           </div>
         </div>
       </form>
+    </div>
+    <div data-view="entries" class="entries-div" id="entries-div">
+      <div class="container">
+        <div class="row">
+          <div class="column-full space-between">
+            <h1>
+              Entries
+            </h1>
+            <div>
+              <button class="new" id="new" type="submit">NEW</button>
+            </div>
+          </div>
+        </div>
+        <h4 id="no-entries">No Entries have been recorded.</h4>
+        <ul class="entry-list"></ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
