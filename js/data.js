@@ -7,11 +7,11 @@ var data = {
   nextEntryId: 1
 };
 var previousData = localStorage.getItem('javascript-local-storage');
+if (previousData !== null) {
+  data = JSON.parse(previousData);
+}
 window.addEventListener('beforeunload', handleBeforeunload);
 function handleBeforeunload(event) {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('javascript-local-storage', dataJSON);
-}
-if (previousData !== null) {
-  previousData = JSON.parse(previousData);
 }
