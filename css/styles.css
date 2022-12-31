@@ -51,6 +51,11 @@ h4 {
   text-align: center;
 }
 
+.flex-h2 {
+  display: flex;
+  justify-content: space-between;
+}
+
 .entries-div {
   display: flex;
   flex-direction: column;
@@ -135,4 +140,8 @@ h4 {
 
 .hide {
   visibility: hidden;
+}
+
+.pencil {
+  cursor: pointer;
 }
