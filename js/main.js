@@ -9,7 +9,11 @@ var ul = document.querySelector('.entry-list');
 var title = document.querySelector('.title');
 var notes = document.querySelector('.notes');
 var formHeading = document.querySelector('#new-entry');
+var deleteButton = document.getElementById('delete');
+var cancelButton = document.getElementById('cancel');
+var confirmButton = document.getElementById('confirm');
 photoInput.addEventListener('input', handlePhotoInput);
+var modalBackground = document.querySelector('.background');
 function handlePhotoInput(event) {
   var photoUrl = photoInput.value;
   if (event.target.value) {
@@ -57,6 +61,7 @@ function handleFormSubmit(event) {
     oldLi.replaceWith(newLi);
     data.editing = null;
     form.reset();
+    deleteButton.className = 'delete hide';
     entriesViewHandler();
     photo.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
@@ -77,6 +82,7 @@ function renderEntry(entry) {
   var pencil = document.createElement('i');
   pencil.className = 'fa-solid fa-pencil pencil';
   li.setAttribute('data-entry-id', entry.entryId);
+  confirmButton.setAttribute('data-entry-id', entry.entryId);
   image.src = entry.photo;
   h2.textContent = entry.title;
   p.textContent = entry.notes;
@@ -152,7 +158,31 @@ function handlePencilClick(event) {
     title.value = data.editing.title;
     notes.value = data.editing.notes;
     formHeading.textContent = 'Edit Entry';
+    deleteButton.className = 'delete';
     photo.setAttribute('src', data.editing.photo);
     viewSwap('entries-form');
   }
+}
+deleteButton.addEventListener('click', handleDeleteButton);
+function handleDeleteButton(event) {
+  modalBackground.className = 'background';
+}
+cancelButton.addEventListener('click', handleCancelModal);
+function handleCancelModal(event) {
+  modalBackground.className = 'background hidden';
+}
+confirmButton.addEventListener('click', handleConfirmDelete);
+function handleConfirmDelete() {
+  var entryId = confirmButton.getAttribute('data-entry-id');
+  var index = data.entries.findIndex(entry => entry.entryId === parseInt(entryId, 10));
+  data.entries.splice(index, 1);
+  var li = document.querySelector(`li[data-entry-id="${entryId}"]`);
+  if (data.entries.length === 0) {
+    toggleNoEntries(true);
+  } else {
+    toggleNoEntries(false);
+  }
+  li.remove();
+  handleCancelModal();
+  viewSwap('entries');
 }
